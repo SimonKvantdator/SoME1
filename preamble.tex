@@ -1,0 +1,106 @@
+%! TEX root = /home/simon/Documents/artikel/main.tex
+
+
+%%%%%%%%%%% LANGUAGE %%%%%%%%%%%
+
+% For correct hyphenation in swedish
+\usepackage[T1]{fontenc}
+
+% For interpreting non-ASCII characters
+\usepackage[utf8]{inputenc}
+
+% International language support
+% Fetches language from documentclass options. Most other packages do this as well
+\usepackage{babel}
+
+
+%%%%%%%%%%% FORMAL STUFF %%%%%%%%%%%
+
+% Page margin lengths
+\usepackage[top=3cm, bottom=3cm, inner=3cm, outer=3cm]{geometry}
+
+% Dates & time
+\usepackage[yyyymmdd]{datetime} % Useful when referencing websites
+\renewcommand{\dateseparator}{-} % ISO 8601 date format
+
+% Lists
+\usepackage{enumerate} % Determines the style in which the counter is printed
+\usepackage{enumitem} % Provides user control over the layout of the three basic list environments
+
+% Citing & bibliography
+\usepackage{csquotes} % For \enquote command for proper quotation marks, also biblatex recommends this
+\usepackage[numbers]{natbib}
+
+
+%%%%%%%%%%% PHYSICS %%%%%%%%%%%
+
+\usepackage{braket} % Defines \bra, \ket, \braket, and \set
+\usepackage{tensor} % Covariant index notation
+\usepackage{physics} 
+
+% Figure and table captions etc
+\usepackage[font=small]{caption}
+
+
+%%%%%%%%%%% MATHEMATICS %%%%%%%%%%%
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+
+%%%%%%%%%%% MISCELLANEOUS %%%%%%%%%%%
+
+% This is a uglier but faster alternative to the todonotes package
+\usepackage{xstring}
+\usepackage[]{marginnote} 
+\newcommand{\todo}[2][]{%
+	\IfStrEqCase{#1}{%
+        {inline}{{\color{red}#2}}%
+	}[%
+		\marginnote{\color{red}#2}%
+	]
+}
+
+% Clickable links and refs
+\usepackage{hyperref}								
+\hypersetup{final, colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+
+% Cleverref automatically detects if you are referencing a figure, table, or equation etc
+% Cleverref has to be loaded last I think, after babel and hyperref etc
+\usepackage[noabbrev, nameinlink]{cleveref}
+\crefname{equation}{}{}
+\iflanguage{swedish}{ % Tell cleverref to use Oxford comma
+	\newcommand{\creflastconjunction}{, och\nobreakspace}
+}{}
+\iflanguage{english}{
+	\newcommand{\creflastconjunction}{, and\nobreakspace}
+}{}
+
+% Theorem and proof environments
+% Has to be put after cleveref
+\iflanguage{english}{
+    \newtheorem{theorem}{Theorem}
+    \newtheorem*{theorem*}{Theorem}
+    \newtheorem{proposition}[theorem]{Proposition}
+    \newtheorem*{proposition*}{Proposition}
+    \newtheorem{corollary}{Corollary}[theorem]
+    \newtheorem{corollary*}{Corollary}
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem*{lemma*}{Lemma}
+    \newtheorem{remark}[theorem]{Remark}
+    \newtheorem*{remark*}{Remark}
+    \theoremstyle{definition}
+    \newtheorem{definition}[theorem]{Definition}
+    \newtheorem*{definition*}{Definition}
+    \newtheorem{axiom}[theorem]{Axiom}
+    \newtheorem*{axiom*}{Axiom}
+}{}
+
+% Write \overset{text}&{=} in align environments to align with respect to the = symbol
+\usepackage{aligned-overset} 
+
+\usepackage[]{pifont} 

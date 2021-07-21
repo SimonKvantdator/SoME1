@@ -1,0 +1,16 @@
+% RUN THE FOLLOWING COMMAND TO UPDATE THE PRECOMPILED PREAMBLE
+% :!cd ~/Documents/some1/ && pdftex -ini -jobname="preamble" "&pdflatex" mylatexformat.ltx preamble_for_precompiling.tex
+\documentclass[english, 12pt]{article}
+
+% Preamble
+\input{preamble}
+
+% Commands that I have defined myself
+\input{my_commands}
+
+\title{What is a tensor?\\Tensors explained in unnecessary rigour using concepts from functional programming\\\ding{166}}
+\author{Simon Jacobsson}
+\date{\today}
+
+\endofdump
+\begin{document}

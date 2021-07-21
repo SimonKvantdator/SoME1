@@ -1,0 +1,41 @@
+%! TEX root = /home/simon/Documents/artikel/main.tex
+
+% Main number systems
+\def\naturals{\mathbb{N}}
+\def\integers{\mathbb{Z}}
+\def\rationals{\mathbb{Q}}
+\def\reals{\mathbb{R}}
+\def\complexnumbers{\mathbb{C}}
+
+% Some shorthands for correct spacing in math environments
+\def\from{\colon} % Proper spacing of colon in f:A -> B
+\newlength\mylen
+\settowidth\mylen{$\longleftrightarrow$}
+\newcommand*{\mapsbetween}{\longleftrightarrow\kern - 0.5\mylen\vline height 1.2ex depth -0.0pt\kern0.5\mylen} % Isomorphic \mapsto
+\def\suchthat{\qq{s.th.}}
+\def\definedas{\coloneqq}
+\def\defines{\eqqcolon}
+\newcommand*{\conjugate}[1]{\mkern 1.0mu\overline{\mkern-1.0mu#1\mkern-1.0mu}\mkern 1.0mu} % Complex conjugate
+\newcommand*{\dual}[1]{{#1}^{*}} % Dual vector space
+\newcommand*\ddual[1]{{#1}^{**}}
+
+% Lie-groups & algebras, e.g. SU(n)
+\newcommand*{\algebra}[2]{{\mathfrak{\MakeLowercase{#1}}}{\left(#2\right)}}
+\newcommand*{\group}[2]{{\mathrm{\MakeUppercase{#1}}}{\left(#2\right)}}
+% \newcommand*{\commutator}[2]{\left[#1, #2\right]}
+
+% Fundamental operators
+\def\sDiv{\mathscr{D}}
+\def\sTwist{\mathscr{T}}
+\def\sCurl{\mathscr{C}}
+\def\sCurlDagger{\mathscr{C}^\dagger}
+
+% Symmetric multiplication
+\newcommand*{\SymMult}[2]{\overset{#1, #2}{\odot}}
+
+% SymH
+\DeclareMathOperator*{\Sym}{Sym}
+
+% Notation for irreducible parts of symmetry operator coefficients
+\newcommand*{\coeff}[3]{\underset{#2, #3}{#1}{}}
+

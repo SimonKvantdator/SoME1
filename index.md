@@ -1,5 +1,5 @@
 ---
-title: "What is a tensor? Tensors explained in unnecessary rigour using concepts from functional programming"
+title: "What is a tensor?"
 ---
 
 Welcome to my entry for the [3Blue1Brown Summer of Math Exposition 2021](https://youtu.be/ojjzXyQCzso), which is a competition of online maths explainers.

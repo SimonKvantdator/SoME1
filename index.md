@@ -137,7 +137,7 @@ elements. These particular kinds of requirements lists are known in
 functional programming as *typeclasses*. A simpler example of a
 typeclass is *totally ordered sets*, which are sets $S$ with a some
 binary operation
-$\leq \colon S \times S \to \set{\textrm{True}, \textrm{False}}$
+$\leq \colon S \times S \to \set{\textrm{True}, \textrm{False} }$
 satisfying
 
 1.  $x \leq x$.
@@ -285,11 +285,11 @@ which defines the Heaviside step function $$\begin{aligned}
         1, \quad x > 0
     \end{cases}.\end{aligned}$$ Writing `( > 0)` means we partially
 apply the comparison
-`<`$\colon\mathbb{R}\times \mathbb{R}\to \set{\textrm{True}, \textrm{False}}$
+`<`$\colon\mathbb{R}\times \mathbb{R}\to \set{\textrm{True}, \textrm{False} }$
 to $0$. The dot on the third line just means *composition*, we compose
 the function `( > 0)`
-$\colon\mathbb{R}\to \set{\textrm{True}, \textrm{False}}$ with
-`bool2Int`$\colon\set{\textrm{True}, \textrm{False}} \to \mathbb{R}$.
+$\colon\mathbb{R}\to \set{\textrm{True}, \textrm{False} }$ with
+`bool2Int`$\colon\set{\textrm{True}, \textrm{False} } \to \mathbb{R}$.
 
 Defining tensors as multilinear maps {#sec:defining_tensors_as_multilinear_maps}
 ====================================
@@ -380,7 +380,7 @@ The preceding paragraph is fairly dense and contains some
 plausible-sounding but non-obvious things. Read it slowly. In essence,
 it proves that we can write tensors as multilinear maps
 $$\begin{aligned}
-    f \colon\underbrace{V \to \dots \to V}_{\times l} \to \underbrace{{V}^{\ast} \to \dots \to {V}^{\ast}}_{\times k} \to R.\end{aligned}$$
+    f \colon\underbrace{V \to \dots \to V}_{\times l} \to \underbrace{ {V}^{\ast} \to \dots \to {V}^{\ast} }_{\times k} \to R.\end{aligned}$$
 
 Tensor product {#sec:tensor_product}
 ==============
@@ -406,25 +406,25 @@ function bilinear on $U \times V$, there is a function that is linear on
 $U \otimes V$. So we have yet another way of writing
 [\[def:tensor\]](#def:tensor){reference-type="ref"
 reference="def:tensor"}: a tensor is a linear map $$\begin{aligned}
-    f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times k} \to R.\end{aligned}$$
+    f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{ {V}^{\ast} \otimes \dots \otimes {V}^{\ast} }_{\times k} \to R.\end{aligned}$$
 
 This looks somewhat familiar thought. Recalling
 [\[def:dual\_space\]](#def:dual_space){reference-type="ref"
 reference="def:dual_space"}, we can rewrite the set of valence $(k, l)$
 tensors as $$\begin{aligned}
-    &\set{f \quad \textrm{s.th.} \quad f \textrm{ is a valence \((k, l)\) tensor}}\\
+    &\set{f \quad \textrm{s.th.} \quad f \textrm{ is a valence \((k, l)\) tensor} }\\
     %
-    ={}& \set{f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times k} \to R \quad \textrm{s.th.} \quad f \text{ is linear}}\\
+    ={}& \set{f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{ {V}^{\ast} \otimes \dots \otimes {V}^{\ast} }_{\times k} \to R \quad \textrm{s.th.} \quad f \text{ is linear} }\\
     %
-    ={}& {\big( \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times k} \big)}^{\ast}\\
+    ={}& {\big( \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{ {V}^{\ast} \otimes \dots \otimes {V}^{\ast} }_{\times k} \big)}^{\ast}\\
     %
-    ={}& \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
+    ={}& \underbrace{ {V}^{\ast} \otimes \dots \otimes {V}^{\ast} }_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
 The last step is that taking the dual space distributes over tensor
 products. It is not hard to believe, and it is not difficult to prove
 [^2]. Hence we can make one last very neat reformulation of
 [\[def:tensor\]](#def:tensor){reference-type="ref"
 reference="def:tensor"}: A tensor is an element of $$\begin{aligned}
-    \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
+    \underbrace{ {V}^{\ast} \otimes \dots \otimes {V}^{\ast} }_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
 
 How to transform like a tensor {#sec:how_to_transform_like_a_tensor}
 ==============================

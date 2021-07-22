@@ -1,6 +1,7 @@
 ---
 usemathjax: true
 ---
+$$1 = 2$$
 
 If you ask a physics professor what a tensor is, they will likely tell
 you that "it is something that transforms like a tensor." I was

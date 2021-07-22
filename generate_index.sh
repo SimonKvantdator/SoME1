@@ -4,7 +4,7 @@
 pandoc -s main.tex -o index.md --mathjax
 
 # Add some preamble at the beginning of the file
-echo "---
+echo '---
 usemathjax: true
 ---
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -12,6 +12,6 @@ usemathjax: true
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 
-" | cat - index.md > temp && mv temp index.md
+' | cat - index.md > temp && mv temp index.md
 
 

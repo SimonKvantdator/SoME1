@@ -7,9 +7,9 @@ pandoc --standalone --from=latex main.tex --output=index.md --to=gfm
 echo '---
 usemathjax:true
 ---
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
+<script type="text/javascript" async
+ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 

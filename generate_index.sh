@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Generate .md file from .tex
-pandoc -s main.tex -o index.md --mathjax
+pandoc --standalone main.tex --output=index.md --to=gfm --mathjax
 
 # Add some preamble at the beginning of the file
 echo '---

@@ -1,16 +1,7 @@
 ---
 usemathjax:true
 ---
-<script type="text/javascript">
-window.MathJax = {
-  tex: {
-    packages: [base, ams]
-  },
-  loader: {
-    load: [ui/menu, [tex]/ams]
-  }
-};
-</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 

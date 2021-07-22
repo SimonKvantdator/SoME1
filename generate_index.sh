@@ -12,8 +12,6 @@ usemathjax: true
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 
-\(\require{tensor}\)
-
 ' | cat - index.md > temp && mv temp index.md
 
 

@@ -6,8 +6,6 @@ usemathjax: true
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 
-\(\require{tensor}\)
-
 
 If you ask a physics professor what a tensor is, they will likely tell
 you that "it is something that transforms like a tensor." I was
@@ -71,8 +69,8 @@ linear space is basically a set that you do linear transformations on.
 So let's define things in that order.
 
 [\[def:linear\_map\]]{#def:linear_map label="def:linear_map"} Let $R$ be
-a field ($\reals$ and $\complexnumbers$ are examples of fields). If $U$
-and $V$ are linear spaces over $R$ and $f \from U \to V$, then $f$ is
+a field ($\mathbb{R}$ and $\mathbb{C}$ are examples of fields). If $U$
+and $V$ are linear spaces over $R$ and $f \colon U \to V$, then $f$ is
 *linear* if
 
 1.  $f(u + v) = f(u) + f(v)$ for all $a$, $b \in U$.
@@ -130,7 +128,7 @@ elements. These particular kinds of requirements lists are known in
 functional programming as *typeclasses*. A simpler example of a
 typeclass is *totally ordered sets*, which are sets $S$ with a some
 binary operation
-$\leq \from S \times S \to \set{\textrm{True}, \textrm{False}}$
+$\leq \colon S \times S \to \set{\textrm{True}, \textrm{False}}$
 satisfying
 
 1.  $x \leq x$.
@@ -151,8 +149,8 @@ reference="def:linear_map"}, the addition and multiplication with scalar
 are different operators on each side of the equals sign. In the
 left-hand side of
 [\[item:linearity\_plus\]](#item:linearity_plus){reference-type="ref"
-reference="item:linearity_plus"}, $+ \from U \times U \to U$, while in
-the right-hand side $+ \from V \times V \to V$. Both of these operators
+reference="item:linearity_plus"}, $+ \colon U \times U \to U$, while in
+the right-hand side $+ \colon V \times V \to V$. Both of these operators
 should of course satisfy
 [\[def:linear\_space\]](#def:linear_space){reference-type="ref"
 reference="def:linear_space"} for $U$ and $V$ respectively.
@@ -161,28 +159,28 @@ Let's also define what we mean when we say that two linear spaces are
 equal.
 
 Two linear spaces $U$ and $V$ over a field $R$ are *isomorphic* if there
-exists some linear bijection $f \from U \to V$. $f$ is then an
+exists some linear bijection $f \colon U \to V$. $f$ is then an
 *isomorphism*.
 
-Two examples of linear spaces are $\reals^2$ over $\reals$ and
-$\complexnumbers$ over $\reals$. These two are in fact isomorphic,
-easily seen by extending the map $(1, 0) \mapsto 1$, $(0, 1) \mapsto i$
+Two examples of linear spaces are $\mathbb{R}^2$ over $\mathbb{R}$ and
+$\mathbb{C}$ over $\mathbb{R}$. These two are in fact isomorphic, easily
+seen by extending the map $(1, 0) \mapsto 1$, $(0, 1) \mapsto i$
 linearly. Another example which is not isomorphic to those two is
-$\complexnumbers$ over $\complexnumbers$, which shows the importance of
-having the field in mind.
+$\mathbb{C}$ over $\mathbb{C}$, which shows the importance of having the
+field in mind.
 
 A useful notion in linear algebra is the dual space.
 
 [\[def:dual\_space\]]{#def:dual_space label="def:dual_space"} Let $V$ be
-a linear space over $R$. The *dual space* $\dual V$ to $V$ is the set of
-linear maps $\from V \to R$.
+a linear space over $R$. The *dual space* ${V}^{*}$ to $V$ is the set of
+linear maps $\colon V \to R$.
 
 If $\langle \cdot, \cdot \rangle$ is the natural inner product on
-$\reals^n$, then an example of a dual space is $$\begin{aligned}
-    \dual{(\reals^n)} = \set{ \langle v, \cdot \rangle \quad \textrm{s.th.} \quad v \in \reals^n}.\end{aligned}$$
+$\mathbb{R}^n$, then an example of a dual space is $$\begin{aligned}
+    {(\mathbb{R}^n)}^{*} = \set{ \langle v, \cdot \rangle \quad \textrm{s.th.} \quad v \in \mathbb{R}^n}.\end{aligned}$$
 
 [\[prop:dual\_dual\_space\]]{#prop:dual_dual_space
-label="prop:dual_dual_space"} $\ddual V = V$.
+label="prop:dual_dual_space"} ${V}^{**} = V$.
 
 You can prove this if you want to, but, for me at least, it feels like
 it really should be true.
@@ -195,20 +193,60 @@ Einstein's summation convention. Allegedly, this was one of the
 discoveries that Einstein was most thrilled about: that when writing out
 the components in linear algebraic expressions, repeated indices are
 always summed over. So if $v \in V$ is a vector with components
-$v_\alpha$ in an orthonormal basis $B$ and $L \from V \to V$ is a linear
-map with components $\tensor{L}{^\alpha_\beta}$ in $B$, then $L(v)$ has
-components $$\begin{aligned}
-    \sum_\alpha \tensor{L}{^\alpha_\beta} v_\alpha,\end{aligned}$$ or,
-with Einstein's summation convention, $$\begin{aligned}
-    \tensor{L}{^\alpha_\beta} v_\alpha.\end{aligned}$$
+$v_\alpha$ in an orthonormal basis $B$ and $L \colon V \to V$ is a
+linear map with components $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{L}{^\alpha_\beta}$ in $B$, then $L(v)$ has components $$\begin{aligned}
+    \sum_\alpha %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{L}{^\alpha_\beta} v_\alpha,\end{aligned}$$ or, with Einstein's
+summation convention, $$\begin{aligned}
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{L}{^\alpha_\beta} v_\alpha.\end{aligned}$$
 
 In this text, I will use something similar but different: *abstract
 indices*. In abstract index notation, indices no longer denote
 components but the actual tensors themselves. If $v_a \in V$ is a vector
-and $\tensor{L}{^a_b} \from V \to V$ is a linear map, then the action of
-$\tensor{L}{^a_b}$ on $v_a$ is still written $$\begin{aligned}
-    \tensor{L}{^a_b} v_a,\end{aligned}$$ but the repeated index does not
-mean summation anymore. It just means *action*.
+and $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{L}{^a_b} \colon V \to V$ is a linear map, then the action of $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{L}{^a_b}$ on $v_a$ is still written $$\begin{aligned}
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{L}{^a_b} v_a,\end{aligned}$$ but the repeated index does not mean
+summation anymore. It just means *action*.
 
 In this context, a repeated index is called a *contraction*.
 
@@ -233,8 +271,8 @@ variables once they're defined. All you can do is to write down all of
 the variables you want to use and then apply functions to them. I use
 the word "function" here in its strict mathematical sense: A *function*
 (or *map*) $f$ from a set $A$ to a set $B$ is a rule that assigns, to
-each $a \in A$, a unique $b \in B$. We often write $f \from a \mapsto b$
-or $f(a) = b$. Importantly, this means that
+each $a \in A$, a unique $b \in B$. We often write
+$f \colon a \mapsto b$ or $f(a) = b$. Importantly, this means that
 
 1.  a function does alter any state---there's no function for switching
     your clock from winter time to summer time.
@@ -250,19 +288,19 @@ functionally.
 
 One important concept is *partial application*, or *currying*. Consider
 a function $f$ that takes two arguments. Maybe it looks like this:
-$f \from A \times B \to C$. What if you know that the first argument
+$f \colon A \times B \to C$. What if you know that the first argument
 you'll be supplying is $a \in A$? Then for all intents and purposes, you
-have a new function $g \from B \to C$ defined by $g(b) = f(a, b)$. But
+have a new function $g \colon B \to C$ defined by $g(b) = f(a, b)$. But
 you will also have a different such function for each $a$. So you can
-think of $f$ really as a function $\hat f\from A \to B^C$ where $B^C$
+think of $f$ really as a function $\hat f\colon A \to B^C$ where $B^C$
 denotes the set of functions from $B$ to $C$.
 
 Are $f$ and $\hat f$ really so different then? In many cases, I would
 like to be agnostic about the amount of arguments that I'm about to
 supply for $f$. In functional programming, $f$ and $\hat f$ are the same
 object! It is written $$\begin{aligned}
-    f \from A \to B \to C.\end{aligned}$$ The function
-$\hat f \from a \mapsto g$ is called a partial application of $f$ to
+    f \colon A \to B \to C.\end{aligned}$$ The function
+$\hat f \colon a \mapsto g$ is called a partial application of $f$ to
 $a$.
 
 As an example, consider the following Haskell program,
@@ -278,11 +316,11 @@ which defines the Heaviside step function $$\begin{aligned}
         1, \quad x > 0
     \end{cases}.\end{aligned}$$ Writing `( > 0)` means we partially
 apply the comparison
-`<`$\from \reals \times \reals \to \set{\textrm{True}, \textrm{False}}$
+`<`$\colon\mathbb{R}\times \mathbb{R}\to \set{\textrm{True}, \textrm{False}}$
 to $0$. The dot on the third line just means *composition*, we compose
 the function `( > 0)`
-$\from \reals \to \set{\textrm{True}, \textrm{False}}$ with
-`bool2Int`$\from \set{\textrm{True}, \textrm{False}} \to \reals$.
+$\colon\mathbb{R}\to \set{\textrm{True}, \textrm{False}}$ with
+`bool2Int`$\colon\set{\textrm{True}, \textrm{False}} \to \mathbb{R}$.
 
 Defining tensors as multilinear maps {#sec:defining_tensors_as_multilinear_maps}
 ====================================
@@ -296,8 +334,8 @@ $$\begin{aligned}
     \vec{a} \times (r \vec{b}) ={}& r (\vec{a} \times \vec{b}).\end{aligned}$$
 Another example is scalar products for similar reasons. Yet another
 example is the (signed) volume of a parallelepiped. If you have three
-vectors $\vec a$, $\vec b$, and $\vec c$ in $\reals^3$, then they define
-a parallelepiped by [1](#fig:parallelepiped){reference-type="ref"
+vectors $\vec a$, $\vec b$, and $\vec c$ in $\mathbb{R}^3$, then they
+define a parallelepiped by [1](#fig:parallelepiped){reference-type="ref"
 reference="fig:parallelepiped"}. Look closely at the figure and try to
 see why each vector contributes linearly to the volume.
 
@@ -346,70 +384,176 @@ definition that you came here to for.
 [\[def:tensor\]]{#def:tensor label="def:tensor"} Let $V$ be a linear
 space over a field $R$. A valence $(k, l)$ *tensor* is multilinear map
 $$\begin{aligned}
-        f \from \underbrace{V \times \dots \times V}_{\times l} \to \underbrace{V \times \dots \times V}_{\times k}.
+        f \colon\underbrace{V \times \dots \times V}_{\times l} \to \underbrace{V \times \dots \times V}_{\times k}.
     \end{aligned}$$ Or, equivalently, a tensor is a multilinear map
 $$\begin{aligned}
-        f \from \underbrace{V \times \dots \times V}_{\times l} \times \dual V \to \underbrace{V \times \dots \times V}_{\times (k - 1)}
+        f \colon\underbrace{V \times \dots \times V}_{\times l} \times {V}^{*} \to \underbrace{V \times \dots \times V}_{\times (k - 1)}
     \end{aligned}$$ or a multilinear map $$\begin{aligned}
-        f \from \underbrace{V \times \dots \times V}_{\times (l - 1)} \to \dual V \times \underbrace{V \times \dots \times V}_{\times k}
+        f \colon\underbrace{V \times \dots \times V}_{\times (l - 1)} \to {V}^{*} \times \underbrace{V \times \dots \times V}_{\times k}
     \end{aligned}$$ etc.
 
 To see the isomorphism between these sets of multilinear maps, we will
 use partial application, along with
 [\[prop:dual\_dual\_space\]](#prop:dual_dual_space){reference-type="ref"
 reference="prop:dual_dual_space"}. For the special case of a map
-$f \from V \to V$, the argument goes like this. Map $f \from V \to V$ to
-the multilinear $f' \from V \times \dual V \to R$ by
-$f'(v, \dual u) = \dual u(f(v))$. Then map
-$f' \from V \times \dual V \to R$ to $f'' \from V \to \dual{(\dual V)}$
-by $f''(v) = f'(v, \cdot)$. But since $\dual{(\dual V)} = V$,
-$f'' \from V \to V$. The kernels of each of the two maps $f \mapsto f'$
+$f \colon V \to V$, the argument goes like this. Map $f \colon V \to V$
+to the multilinear $f' \colon V \times {V}^{*} \to R$ by
+$f'(v, {u}^{*}) = {u}^{*}(f(v))$. Then map
+$f' \colon V \times {V}^{*} \to R$ to $f'' \colon V \to {({V}^{*})}^{*}$
+by $f''(v) = f'(v, \cdot)$. But since ${({V}^{*})}^{*} = V$,
+$f'' \colon V \to V$. The kernels of each of the two maps $f \mapsto f'$
 and $f' \mapsto f''$ are clearly $0$ and they are both clearly linear,
 so each of them must be an isomorphism [^1]. It is not hard to extend
 this argument to all different kinds of combinations of $V$ and
-$\dual V$.
+${V}^{*}$.
 
 The preceding paragraph is fairly dense and contains some
 plausible-sounding but non-obvious things. Read it slowly. In essence,
 it proves that we can write tensors as multilinear maps
 $$\begin{aligned}
-    f \from \underbrace{V \to \dots \to V}_{\times l} \to \underbrace{\dual V \to \dots \to \dual V}_{\times k} \to R.\end{aligned}$$
+    f \colon\underbrace{V \to \dots \to V}_{\times l} \to \underbrace{{V}^{*} \to \dots \to {V}^{*}}_{\times k} \to R.\end{aligned}$$
 
 Contractions {#sec:contractions}
 ============
 
 With index notation, we can concisely show the valence of a tensor.
-$f \from V \to V \to \dual V \to \dual V \to \dual V \to R$ may
-profitably be written as $\tensor{f}{_{a b}^{c d e}}$. But writing
-indices in this way also helps us denote partial applications in a way
-that uniquely tells us *which* partial applications are made.
+$f \colon V \to V \to {V}^{*} \to {V}^{*} \to {V}^{*} \to R$ may
+profitably be written as $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{f}{_{a b}^{c d e}}$. But writing indices in this way also helps us
+denote partial applications in a way that uniquely tells us *which*
+partial applications are made.
 
 Here's the bridge between tensors as multilinear maps and tensors as
 indexed objects: contractions are partial applications. As an example,
 consider a valence $(2, 1)$ tensor $$\begin{aligned}
-    \tensor{X}{_a_b^c} \from V \to V \to \dual V \to R\end{aligned}$$
-and a valence $(0, 2)$ tensor $$\begin{aligned}
-    \tensor{Y}{^a^b} \from \dual V \to \dual V \to R.\end{aligned}$$
-Now, one way of viewing these tensors is to view $\tensor{X}{_a_b^c}$ as
-a map $\from V \times V \to V$ and $\tensor{Y}{^a^b}$ as an element in
-$V \times V$. Then we can of course act on $\tensor{Y}{^a^b}$ with
-$\tensor{X}{_a_b^c}$, which is written $$\begin{aligned}
-    \tensor{X}{_a_b^c} \tensor{Y}{^a^b}\end{aligned}$$ and yields a
-valence $(1, 0)$ tensor (vector in $V$). But $\tensor{X}{^a_b_c}$ can
-also be seen as a map $\from V \to V^V$. Then, applying
-$\tensor{X}{^a_b_c}\from V \to V^V$ to the first part of
-$\tensor{Y}{^a^b}$, written $$\begin{aligned}
-    \tensor{X}{^a_b_c} \tensor{Y}{^c^d},\end{aligned}$$ yields a valence
-$(2, 1)$ tensor.
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{_a_b^c} \colon V \to V \to {V}^{*} \to R\end{aligned}$$ and a
+valence $(0, 2)$ tensor $$\begin{aligned}
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{Y}{^a^b} \colon{V}^{*} \to {V}^{*} \to R.\end{aligned}$$ Now, one way
+of viewing these tensors is to view $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{_a_b^c}$ as a map $\colon V \times V \to V$ and $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{Y}{^a^b}$ as an element in $V \times V$. Then we can of course act on
+$%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{Y}{^a^b}$ with $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{_a_b^c}$, which is written $$\begin{aligned}
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{_a_b^c} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{Y}{^a^b}\end{aligned}$$ and yields a valence $(1, 0)$ tensor (vector in
+$V$). But $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{^a_b_c}$ can also be seen as a map $\colon V \to V^V$. Then,
+applying $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{^a_b_c}\colon V \to V^V$ to the first part of $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{Y}{^a^b}$, written $$\begin{aligned}
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{^a_b_c} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{Y}{^c^d},\end{aligned}$$ yields a valence $(2, 1)$ tensor.
 
 The relation between this definition of contraction and the "repeated
 indices are summed over"-one is that they're the same thing if we do
 contraction explicitly in an orthogonal basis for $V$. Remember that in
-my notation $\tensor{X}{^a_b_c}$ *is* the tensor while in regular index
-notation $\tensor{X}{^a_b_c}$ is its components in some given basis. So
-now is a pretty good time to reflect a bit on what we have actually
-done. For I didn't need to mention any basis until this paragraph, so
-everything we have done thus far is totally basis-independent!
+my notation $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{^a_b_c}$ *is* the tensor while in regular index notation $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{X}{^a_b_c}$ is its components in some given basis. So now is a pretty
+good time to reflect a bit on what we have actually done. For I didn't
+need to mention any basis until this paragraph, so everything we have
+done thus far is totally basis-independent!
 
 Tensor product {#sec:tensor_product}
 ==============
@@ -423,10 +567,10 @@ to tensors.
 label="def:tensor_product"} Let $U_1$, ..., $U_n$ be vector spaces over
 a field $R$. Then $U_1 \otimes \dots \otimes U_n$ is a linear space
 equipped with a multilinear map
-$\pi \from U_1 \times \dots \times U_n \to U_1 \otimes \dots \otimes U_n$
+$\pi \colon U_1 \times \dots \times U_n \to U_1 \otimes \dots \otimes U_n$
 such that for any multilinear map
-$f \from U_1 \times \dots \times U_n \to R$ there exists a unique linear
-map $g \from U_1 \otimes \dots \otimes U_n \to R$ such that
+$f \colon U_1 \times \dots \times U_n \to R$ there exists a unique
+linear map $g \colon U_1 \otimes \dots \otimes U_n \to R$ such that
 $f = g \circ \pi$.
 
 The space $U \otimes V$ is called the *tensor product space* of $U$ and
@@ -435,7 +579,7 @@ function bilinear on $U \times V$, there is a function that is linear on
 $U \otimes V$. So we have yet another way of writing
 [\[def:tensor\]](#def:tensor){reference-type="ref"
 reference="def:tensor"}: a tensor is a linear map $$\begin{aligned}
-    f \from \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{\dual V \otimes \dots \otimes \dual V}_{\times k} \to R.\end{aligned}$$
+    f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times k} \to R.\end{aligned}$$
 
 This looks somewhat familiar thought. Recalling
 [\[def:dual\_space\]](#def:dual_space){reference-type="ref"
@@ -443,17 +587,17 @@ reference="def:dual_space"}, we can rewrite the set of valence $(k, l)$
 tensors as $$\begin{aligned}
     &\set{f \quad \textrm{s.th.} \quad f \textrm{ is a valence $(k, l)$ tensor}}\\
     %
-    ={}& \set{f \from \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{\dual V \otimes \dots \otimes \dual V}_{\times k} \to R \quad \textrm{s.th.} \quad f \text{ is linear}}\\
+    ={}& \set{f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times k} \to R \quad \textrm{s.th.} \quad f \text{ is linear}}\\
     %
-    ={}& \dual{\big( \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{\dual V \otimes \dots \otimes \dual V}_{\times k} \big)}\\
+    ={}& {\big( \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times k} \big)}^{*}\\
     %
-    ={}& \underbrace{\dual{V} \otimes \dots \otimes \dual{V}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
+    ={}& \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
 The last step is that taking the dual space distributes over tensor
 products. It is not hard to believe, and it is not difficult to prove
 [^2]. Hence we can make one last very neat reformulation of
 [\[def:tensor\]](#def:tensor){reference-type="ref"
 reference="def:tensor"}: A tensor is an element of $$\begin{aligned}
-    \underbrace{\dual{V} \otimes \dots \otimes \dual{V}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
+    \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
 
 Krönecker product {#sec:krönecker_product}
 =================
@@ -532,54 +676,299 @@ How to transform like a tensor {#sec:how_to_transform_like_a_tensor}
 ==============================
 
 What about the physics professor's definition of a tensor? Well, let's
-think about what happens to the components of a tensor
-$\tensor{T}{_i^j} \from V \to \dual V \to R$ when we make a coordinate
-change to $V$. If $v$ is a vector in $V$ whose components transform as
-$\tensor{v}{^i} \mapsto \tensor{A}{_j^i} \tensor{v}{^j}$ by a change of
-coordinates, and if $\dual v = \langle v, \cdot \rangle \in \dual V$,
-then the components of $\dual v$ should transform as
-$\tensor{(\dual v)}{_i} \mapsto \tensor{(A^{-1})}{^j_i} \tensor{(\dual v)}{_j}$.
-The reason for this is that $|v|^2 = \dual v v$ is invariant under
-coordinate changes, and $$\begin{aligned}
-    \dual v v ={}& \tensor{v}{^i} \tensor{(\dual v)}{_i}\\
-    \mapsto{}& \tensor{v}{^j} \tensor{A}{_j^i} \tensor{(A^{-1})}{^k_i} \tensor{(\dual v)}{_k}\\
-    ={}& \tensor{v}{^j} \tensor{\delta}{_j^k} \tensor{(\dual v)}{_k}\\
-    ={}& \dual v v\end{aligned}$$ shows that this is satisfied. So with
-some abuse of notation, let's write down how $T(v, \dual v)$ transforms:
+think about what happens to the components of a tensor $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j} \colon V \to {V}^{*} \to R$ when we make a coordinate change
+to $V$. If $v$ is a vector in $V$ whose components transform as $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^i} \mapsto %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{A}{_j^i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^j}$ by a change of coordinates, and if
+${v}^{*} = \langle v, \cdot \rangle \in {V}^{*}$, then the components of
+${v}^{*}$ should transform as $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_i} \mapsto %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{(A^{-1})}{^j_i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_j}$. The reason for this is that $|v|^2 = {v}^{*} v$ is
+invariant under coordinate changes, and $$\begin{aligned}
+    {v}^{*} v ={}& %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_i}\\
+    \mapsto{}& %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^j} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{A}{_j^i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{(A^{-1})}{^k_i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_k}\\
+    ={}& %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^j} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{\delta}{_j^k} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_k}\\
+    ={}& {v}^{*} v\end{aligned}$$ shows that this is satisfied. So with
+some abuse of notation, let's write down how $T(v, {v}^{*})$ transforms:
 $$\begin{aligned}
-    \tensor{T}{_i^j}\big(
-        \tensor{v}{^i},
-        \tensor{(\dual v)}{_j}
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j}\big(
+        %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^i},
+        %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_j}
     \big)
     \mapsto{}& T\big(
-        \tensor{A}{_k^i} \tensor{v}{^k},
-        \tensor{(A^{-1})}{^l_j} \tensor{(\dual v)}{_l}
+        %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{A}{_k^i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^k},
+        %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{(A^{-1})}{^l_j} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_l}
     \big)\\
     %
-    ={}& \tensor{A}{_k^i} \tensor{(A^{-1})}{^l_j} \tensor{T}{_i^j}
+    ={}& %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{A}{_k^i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{(A^{-1})}{^l_j} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j}
     \big(
-        \tensor{v}{^k},
-        \tensor{(\dual v)}{_l}
-    \big).\end{aligned}$$ Hence the components of $\tensor{T}{_i^j}$
-transform as $$\begin{aligned}
+        %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{v}{^k},
+        %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{({v}^{*})}{_l}
+    \big).\end{aligned}$$ Hence the components of $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j}$ transform as $$\begin{aligned}
 \label{eq:tensor_transformation_rules}
-    \tensor{T}{_i^j} \mapsto \tensor{A}{_k^i} \tensor{(A^{-1})}{^l_j} \tensor{T}{_i^j}.\end{aligned}$$
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j} \mapsto %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{A}{_k^i} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{(A^{-1})}{^l_j} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j}.\end{aligned}$$
 
 In physics you often deal with tensor fields. Now I don't use "field" as
-in $\reals$ or $\complexnumbers$ anymore but as in a function from the
+in $\mathbb{R}$ or $\mathbb{C}$ anymore but as in a function from the
 space or spacetime manifold $M$ to the space of tensors. Then $V$ is
 often the tangent space to $M$. If we make a coordinate change
-$x \mapsto \hat x$ on $M$, then that induces a coordinate change
-$\tensor{A}{_i^j} = \pdv*{\hat x_i}{x_j}$ of the tangent space. But just
+$x \mapsto \hat x$ on $M$, then that induces a coordinate change $%
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{A}{_i^j} = \pdv*{\hat x_i}{x_j}$ of the tangent space. But just
 substituting this into
 [\[eq:tensor\_transformation\_rules\]](#eq:tensor_transformation_rules){reference-type="ref"
 reference="eq:tensor_transformation_rules"} and using
 $\left(\pdv*{\hat x_i}{x_j}\right)^{-1} = \pdv*{x_i}{\hat x_j}$ gives
 $$\begin{aligned}
-    \tensor{T}{_i^j} \mapsto \pdv{\hat x_k}{x_i} \pdv{x_j}{\hat x_l} \tensor{T}{_i^j}.\end{aligned}$$
-This is the transformation law that physicists mean when they say
-something transforms as a tensor. It generalizes in the obvious way for
-higher valence tensors.
+    %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j} \mapsto \pdv{\hat x_k}{x_i} \pdv{x_j}{\hat x_l} %
+  %
+  \tnsr@Sps{}%
+  \tnsr@Sbs{}%
+  \let\tnsr@Wrn\relax
+
+  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
+{T}{_i^j}.\end{aligned}$$ This is the transformation law that physicists
+mean when they say something transforms as a tensor. It generalizes in
+the obvious way for higher valence tensors.
 
 [^1]: There are three statements here that must be motivated:
     $\operatorname{ker}(f \mapsto f') = 0$,
@@ -588,6 +977,5 @@ higher valence tensors.
     when $V$ is infinite-dimensional? I don't think that I can.
 
 [^2]: The idea is that
-    $\phi \from \dual V \otimes \dual W \to \dual{(V \otimes W)}$
-    defined by $\phi(f \otimes g)(v \otimes w) = f(v) g(w)$ is an
-    isomorphism.
+    $\phi \colon{V}^{*} \otimes {W}^{*} \to {(V \otimes W)}^{*}$ defined
+    by $\phi(f \otimes g)(v \otimes w) = f(v) g(w)$ is an isomorphism.

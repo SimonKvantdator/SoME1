@@ -35,6 +35,8 @@ If you google \enquote{what is a tensor}, there are already many people who have
 Many of them also have strong opinions about the subject.
 So please don't think of this as \emph{the} definition of tensors, but rather one of many ways to define them, which if nothing else shows off some cool ideas from programming.
 
+\href{https://www.quora.com/Why-is-it-difficult-to-explain-tensors?}{\color{blue}This} question on Quora gives a fairly good overview over why tensors are difficult to pin down.
+
 \section{Linearity}%
 \label{sec:linearity}
 
@@ -91,12 +93,19 @@ We have some other things we generally want to be true about linear spaces, but 
 \end{definition}
 
 As mentioned, this is just a list of formal requirements that sets must satisfy for it to make sense to apply linear functions to their elements.
+These particular kinds of requirements lists are known in functional programming as \emph{typeclasses}.
+A simpler example of a typeclass is \emph{totally ordered sets}, which are sets $S$ with a some binary operation $\leq \from S \times S \to \set{\textrm{True}, \textrm{False}}$ satisfying
+\begin{enumerate}
+	\item $x \leq x$.
+	\item $x \leq y$ and $y \leq x$ $\implies x = y$.
+	\item $x \leq y$ and $y \leq z$ $\implies x \leq z$.
+	\item Either $x \leq y$ or $y \leq x$.
+\end{enumerate}
+For all $x$, $y$, $z$ $\in S$.
 
 Note that, in \cref{item:linearity_plus,item:linearity_multiplication} of \cref{def:linear_map}, the addition and multiplication with scalar are different operators on each side of the equals sign.
 In the left-hand side of \cref{item:linearity_plus}, $+ \from U \times U \to U$, while in the right-hand side $+ \from V \times V \to V$.
 Both of these operators should of course satisfy \cref{def:linear_space} for $U$ and $V$ respectively.
-
-\bigskip
 
 Let's also define what we mean when we say that two linear spaces are equal.
 \begin{definition}

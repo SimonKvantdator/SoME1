@@ -7,6 +7,15 @@ usemathjax: true
 [comment]: <> (This .md file is automatically generated from main.tex)
 
 
+---
+author:
+- Simon Jacobsson
+title: |
+    What is a tensor?\
+    Tensors from physics explained in unnecessary rigour using concepts from
+    functional programming\
+---
+
 If you ask a physics professor what a tensor is, they will likely tell
 you that "it is something that transforms like a tensor." I was
 personally a bit disappointed hearing this as a Master's student in
@@ -194,58 +203,18 @@ discoveries that Einstein was most thrilled about: that when writing out
 the components in linear algebraic expressions, repeated indices are
 always summed over. So if $v \in V$ is a vector with components
 $v_\alpha$ in an orthonormal basis $B$ and $L \colon V \to V$ is a
-linear map with components $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{L}{^\alpha_\beta}$ in $B$, then $L(v)$ has components $$\begin{aligned}
-    \sum_\alpha %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{L}{^\alpha_\beta} v_\alpha,\end{aligned}$$ or, with Einstein's
-summation convention, $$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{L}{^\alpha_\beta} v_\alpha.\end{aligned}$$
+linear map with components $L{}^\alpha{}_\beta$ in $B$, then $L(v)$ has
+components $$\begin{aligned}
+    \sum_\alpha L{}^\alpha{}_\beta v_\alpha,\end{aligned}$$ or, with
+Einstein's summation convention, $$\begin{aligned}
+    L{}^\alpha{}_\beta v_\alpha.\end{aligned}$$
 
 In this text, I will use something similar but different: *abstract
 indices*. In abstract index notation, indices no longer denote
 components but the actual tensors themselves. If $v_a \in V$ is a vector
-and $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{L}{^a_b} \colon V \to V$ is a linear map, then the action of $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{L}{^a_b}$ on $v_a$ is still written $$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{L}{^a_b} v_a,\end{aligned}$$ but the repeated index does not mean
+and $L{}^a{}_b \colon V \to V$ is a linear map, then the action of
+$L{}^a{}_b$ on $v_a$ is still written $$\begin{aligned}
+    L{}^a{}_b v_a,\end{aligned}$$ but the repeated index does not mean
 summation anymore. It just means *action*.
 
 In this context, a repeated index is called a *contraction*.
@@ -413,148 +382,6 @@ it proves that we can write tensors as multilinear maps
 $$\begin{aligned}
     f \colon\underbrace{V \to \dots \to V}_{\times l} \to \underbrace{{V}^{\ast} \to \dots \to {V}^{\ast}}_{\times k} \to R.\end{aligned}$$
 
-Contractions {#sec:contractions}
-============
-
-With index notation, we can concisely show the valence of a tensor.
-$f \colon V \to V \to {V}^{\ast} \to {V}^{\ast} \to {V}^{\ast} \to R$
-may profitably be written as $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{f}{_{a b}^{c d e}}$. But writing indices in this way also helps us
-denote partial applications in a way that uniquely tells us *which*
-partial applications are made.
-
-Here's the bridge between tensors as multilinear maps and tensors as
-indexed objects: contractions are partial applications. As an example,
-consider a valence $(2, 1)$ tensor $$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{_a_b^c} \colon V \to V \to {V}^{\ast} \to R\end{aligned}$$ and a
-valence $(0, 2)$ tensor $$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{Y}{^a^b} \colon{V}^{\ast} \to {V}^{\ast} \to R.\end{aligned}$$ Now, one
-way of viewing these tensors is to view $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{_a_b^c}$ as a map $\colon V \times V \to V$ and $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{Y}{^a^b}$ as an element in $V \times V$. Then we can of course act on
-$%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{Y}{^a^b}$ with $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{_a_b^c}$, which is written $$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{_a_b^c} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{Y}{^a^b}\end{aligned}$$ and yields a valence $(1, 0)$ tensor (vector in
-$V$). But $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{^a_b_c}$ can also be seen as a map $\colon V \to V^V$. Then,
-applying $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{^a_b_c}\colon V \to V^V$ to the first part of $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{Y}{^a^b}$, written $$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{^a_b_c} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{Y}{^c^d},\end{aligned}$$ yields a valence $(2, 1)$ tensor.
-
-The relation between this definition of contraction and the "repeated
-indices are summed over"-one is that they're the same thing if we do
-contraction explicitly in an orthogonal basis for $V$. Remember that in
-my notation $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{^a_b_c}$ *is* the tensor while in regular index notation $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{^a_b_c}$ is its components in some given basis. So now is a pretty
-good time to reflect a bit on what we have actually done. For I didn't
-need to mention any basis until this paragraph, so everything we have
-done thus far is totally basis-independent!
-
 Tensor product {#sec:tensor_product}
 ==============
 
@@ -585,7 +412,7 @@ This looks somewhat familiar thought. Recalling
 [\[def:dual\_space\]](#def:dual_space){reference-type="ref"
 reference="def:dual_space"}, we can rewrite the set of valence $(k, l)$
 tensors as $$\begin{aligned}
-    &\set{f \quad \textrm{s.th.} \quad f \textrm{ is a valence $(k, l)$ tensor}}\\
+    &\set{f \quad \textrm{s.th.} \quad f \textrm{ is a valence \((k, l)\) tensor}}\\
     %
     ={}& \set{f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times k} \to R \quad \textrm{s.th.} \quad f \text{ is linear}}\\
     %
@@ -599,377 +426,58 @@ products. It is not hard to believe, and it is not difficult to prove
 reference="def:tensor"}: A tensor is an element of $$\begin{aligned}
     \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
 
-Krönecker product {#sec:krönecker_product}
-=================
-
-This is all very elegant, but it is at the same time very abstract, and
-it would be useful to see how these concepts look in the wild. Enter the
-Krönecker product, which is *a* tensor product. You can use it for
-finite-dimensional spaces for which you have a basis.
-
-Let $$\begin{aligned}
-        A =
-        \begin{bmatrix}
-            A_{11} & \dots & A_{1n}\\
-            \vdots & \ddots & \vdots\\
-            A_{m1} & \dots & A_{mn}
-        \end{bmatrix}
-    \end{aligned}$$ and $$\begin{aligned}
-        B =
-        \begin{bmatrix}
-            B_{11} & \dots & B_{1q}\\
-            \vdots & \ddots & \vdots\\
-            B_{p1} & \dots & B_{pq}
-        \end{bmatrix}
-    \end{aligned}$$ be two matrices with entries in a field $R$. The
-*Krönecker product* of $A$ and $B$ is $$\begin{aligned}
-        \pi(A, B) =
-        \begin{bmatrix}
-            A_{11}
-            \begin{bmatrix}
-                B_{11} & \dots & B_{1q}\\
-                \vdots & \ddots & \vdots\\
-                B_{p1} & \dots & B_{pq}
-            \end{bmatrix}
-            & \dots &
-            A_{1n}
-            \begin{bmatrix}
-                B_{11} & \dots & B_{1q}\\
-                \vdots & \ddots & \vdots\\
-                B_{p1} & \dots & B_{pq}
-            \end{bmatrix}\\
-            %
-            \vdots & \ddots & \vdots\\
-            %
-            A_{m1}
-            \begin{bmatrix}
-                B_{11} & \dots & B_{1q}\\
-                \vdots & \ddots & \vdots\\
-                B_{p1} & \dots & B_{pq}
-            \end{bmatrix}
-            & \dots &
-            A_{mn}
-            \begin{bmatrix}
-                B_{11} & \dots & B_{1q}\\
-                \vdots & \ddots & \vdots\\
-                B_{p1} & \dots & B_{pq}
-            \end{bmatrix}
-        \end{bmatrix}.
-    \end{aligned}$$ So $\pi(A, B)$ is a $mp \times mq$ matrix and an is
-element of the tensor product space $R^{mn} \otimes R^{pq}$. $\pi(A, B)$
-is denoted $A \otimes B$.
-
-The tensor product space $R^{mn} \otimes R^{pq} = R^{mp \times mq}$ is
-much larger than the Cartesian product space
-$R^{(m + p) \times (n + q)}$, which reflects the fact that it less
-restrictive to be multilinear than to be linear.
-
-We had an example earlier,
-[\[eq:outer\_product\]](#eq:outer_product){reference-type="ref"
-reference="eq:outer_product"}, of a multilinear map. We can see now that
-this is just $\vec u \otimes \vec v$. Hence, for each bilinear function
-that $f$ takes two real $3$-vectors, there is a linear function $g$ that
-takes one real $3\times3$-matrix such that
-$f(\vec u, \vec v) = g(\vec u \otimes \vec v)$.
-
 How to transform like a tensor {#sec:how_to_transform_like_a_tensor}
 ==============================
 
 What about the physics professor's definition of a tensor? Well, let's
-think about what happens to the components of a tensor $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j} \colon V \to {V}^{\ast} \to R$ when we make a coordinate
+think about what happens to the components of a tensor
+$T{}_i{}^j \colon V \to {V}^{\ast} \to R$ when we make a coordinate
 change to $V$. If $v$ is a vector in $V$ whose components transform as
-$%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^i} \mapsto %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{A}{_j^i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^j}$ by a change of coordinates, and if
+$v{}^i \mapsto A{}_j{}^i v{}^j$ by a change of coordinates, and if
 ${v}^{\ast} = \langle v, \cdot \rangle \in {V}^{\ast}$, then the
-components of ${v}^{\ast}$ should transform as $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_i} \mapsto %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{(A^{-1})}{^j_i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_j}$. The reason for this is that $|v|^2 = {v}^{\ast} v$
-is invariant under coordinate changes, and $$\begin{aligned}
-    {v}^{\ast} v ={}& %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_i}\\
-    \mapsto{}& %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^j} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{A}{_j^i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{(A^{-1})}{^k_i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_k}\\
-    ={}& %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^j} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{\delta}{_j^k} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_k}\\
+components of ${v}^{\ast}$ should transform as
+$({v}^{\ast})_i \mapsto (A^{-1}){}^j{}_i ({v}^{\ast}){}_j$. The reason
+for this is that $|v|^2 = {v}^{\ast} v$ is invariant under coordinate
+changes, and $$\begin{aligned}
+    {v}^{\ast} v ={}& v{}^i ({v}^{\ast}){}_i\\
+    \mapsto{}& v{}^j A{}_j{}^i (A^{-1}){}^k{}_i ({v}^{\ast}){}_k\\
+    ={}& v{}^j \delta{}_j{}^k ({v}^{\ast}){}_k\\
     ={}& {v}^{\ast} v\end{aligned}$$ shows that this is satisfied. So
 with some abuse of notation, let's write down how $T(v, {v}^{\ast})$
 transforms: $$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j}\big(
-        %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^i},
-        %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_j}
+    T{}_i{}^j\big(
+        v{}^i,
+        ({v}^{\ast}){}_j
     \big)
     \mapsto{}& T\big(
-        %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{A}{_k^i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^k},
-        %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{(A^{-1})}{^l_j} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_l}
+        A{}_k{}^i v{}^k,
+        (A^{-1}){}^l{}_j ({v}^{\ast}){}_l
     \big)\\
     %
-    ={}& %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{A}{_k^i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{(A^{-1})}{^l_j} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j}
+    ={}& A{}_k{}^i (A^{-1}){}^l{}_j T{}_i{}^j
     \big(
-        %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{v}{^k},
-        %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{\ast})}{_l}
-    \big).\end{aligned}$$ Hence the components of $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j}$ transform as $$\begin{aligned}
+        v{}^k,
+        ({v}^{\ast}){}_l
+    \big).\end{aligned}$$ Hence the components of $T{}_i{}^j$ transform
+as $$\begin{aligned}
 \label{eq:tensor_transformation_rules}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j} \mapsto %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{A}{_k^i} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{(A^{-1})}{^l_j} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j}.\end{aligned}$$
+    T{}_i{}^j \mapsto A{}_k{}^i (A^{-1}){}^l{}_j T{}_i{}^j.\end{aligned}$$
 
 In physics you often deal with tensor fields. Now I don't use "field" as
 in $\mathbb{R}$ or $\mathbb{C}$ anymore but as in a function from the
 space or spacetime manifold $M$ to the space of tensors. Then $V$ is
 often the tangent space to $M$. If we make a coordinate change
-$x \mapsto \hat x$ on $M$, then that induces a coordinate change $%
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{A}{_i^j} = \pdv*{\hat x_i}{x_j}$ of the tangent space. But just
-substituting this into
+$x \mapsto \hat x$ on $M$, then that induces a coordinate change
+$A{}_i{}^j = \partial \hat x_i / \partial x_j$ of the tangent space. But
+just substituting this into
 [\[eq:tensor\_transformation\_rules\]](#eq:tensor_transformation_rules){reference-type="ref"
 reference="eq:tensor_transformation_rules"} and using
-$\left(\pdv*{\hat x_i}{x_j}\right)^{-1} = \pdv*{x_i}{\hat x_j}$ gives
-$$\begin{aligned}
-    %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j} \mapsto \pdv{\hat x_k}{x_i} \pdv{x_j}{\hat x_l} %
-  %
-  \tnsr@Sps{}%
-  \tnsr@Sbs{}%
-  \let\tnsr@Wrn\relax
-
-  \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j}.\end{aligned}$$ This is the transformation law that physicists
-mean when they say something transforms as a tensor. It generalizes in
-the obvious way for higher valence tensors.
+$\left(\partial \hat x_i / \partial x_j\right)^{-1} = \partial x_i / \partial \hat x_j$
+gives $$\begin{aligned}
+    T{}_i{}^j \mapsto \frac{\partial \hat x_k}{\partial x_i} \frac{\partial x_j}{\partial \hat x_l} T{}_i{}^j.\end{aligned}$$
+This is the transformation law that physicists mean when they say
+something transforms as a tensor. It generalizes in the obvious way for
+higher valence tensors.
 
 [^1]: There are three statements here that must be motivated:
     $\operatorname{ker}(f \mapsto f') = 0$,

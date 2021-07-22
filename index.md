@@ -1,4 +1,3 @@
-
 [comment]: <> (This .md file is automatically generated from main.tex)
 ---
 usemathjax: true

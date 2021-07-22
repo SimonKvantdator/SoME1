@@ -5,16 +5,6 @@ usemathjax:true
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 
-
----
-author:
-- Simon Jacobsson
-title: |
-    What is a tensor?\
-    Tensors from physics explained in unnecessary rigour using concepts from
-    functional programming\
----
-
 If you ask a physics professor what a tensor is, they will likely tell
 you that "it is something that transforms like a tensor." I was
 personally a bit disappointed hearing this as a Master's student in

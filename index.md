@@ -172,15 +172,15 @@ field in mind.
 A useful notion in linear algebra is the dual space.
 
 [\[def:dual\_space\]]{#def:dual_space label="def:dual_space"} Let $V$ be
-a linear space over $R$. The *dual space* ${V}^{*}$ to $V$ is the set of
-linear maps $\colon V \to R$.
+a linear space over $R$. The *dual space* ${V}^{\ast}$ to $V$ is the set
+of linear maps $\colon V \to R$.
 
 If $\langle \cdot, \cdot \rangle$ is the natural inner product on
 $\mathbb{R}^n$, then an example of a dual space is $$\begin{aligned}
-    {(\mathbb{R}^n)}^{*} = \set{ \langle v, \cdot \rangle \quad \textrm{s.th.} \quad v \in \mathbb{R}^n}.\end{aligned}$$
+    {(\mathbb{R}^n)}^{\ast} = \set{ \langle v, \cdot \rangle \quad \textrm{s.th.} \quad v \in \mathbb{R}^n}.\end{aligned}$$
 
 [\[prop:dual\_dual\_space\]]{#prop:dual_dual_space
-label="prop:dual_dual_space"} ${V}^{**} = V$.
+label="prop:dual_dual_space"} ${V}^{\ast\ast} = V$.
 
 You can prove this if you want to, but, for me at least, it feels like
 it really should be true.
@@ -387,9 +387,9 @@ $$\begin{aligned}
         f \colon\underbrace{V \times \dots \times V}_{\times l} \to \underbrace{V \times \dots \times V}_{\times k}.
     \end{aligned}$$ Or, equivalently, a tensor is a multilinear map
 $$\begin{aligned}
-        f \colon\underbrace{V \times \dots \times V}_{\times l} \times {V}^{*} \to \underbrace{V \times \dots \times V}_{\times (k - 1)}
+        f \colon\underbrace{V \times \dots \times V}_{\times l} \times {V}^{\ast} \to \underbrace{V \times \dots \times V}_{\times (k - 1)}
     \end{aligned}$$ or a multilinear map $$\begin{aligned}
-        f \colon\underbrace{V \times \dots \times V}_{\times (l - 1)} \to {V}^{*} \times \underbrace{V \times \dots \times V}_{\times k}
+        f \colon\underbrace{V \times \dots \times V}_{\times (l - 1)} \to {V}^{\ast} \times \underbrace{V \times \dots \times V}_{\times k}
     \end{aligned}$$ etc.
 
 To see the isomorphism between these sets of multilinear maps, we will
@@ -397,28 +397,28 @@ use partial application, along with
 [\[prop:dual\_dual\_space\]](#prop:dual_dual_space){reference-type="ref"
 reference="prop:dual_dual_space"}. For the special case of a map
 $f \colon V \to V$, the argument goes like this. Map $f \colon V \to V$
-to the multilinear $f' \colon V \times {V}^{*} \to R$ by
-$f'(v, {u}^{*}) = {u}^{*}(f(v))$. Then map
-$f' \colon V \times {V}^{*} \to R$ to $f'' \colon V \to {({V}^{*})}^{*}$
-by $f''(v) = f'(v, \cdot)$. But since ${({V}^{*})}^{*} = V$,
-$f'' \colon V \to V$. The kernels of each of the two maps $f \mapsto f'$
-and $f' \mapsto f''$ are clearly $0$ and they are both clearly linear,
-so each of them must be an isomorphism [^1]. It is not hard to extend
-this argument to all different kinds of combinations of $V$ and
-${V}^{*}$.
+to the multilinear $f' \colon V \times {V}^{\ast} \to R$ by
+$f'(v, {u}^{\ast}) = {u}^{\ast}(f(v))$. Then map
+$f' \colon V \times {V}^{\ast} \to R$ to
+$f'' \colon V \to {({V}^{\ast})}^{\ast}$ by $f''(v) = f'(v, \cdot)$. But
+since ${({V}^{\ast})}^{\ast} = V$, $f'' \colon V \to V$. The kernels of
+each of the two maps $f \mapsto f'$ and $f' \mapsto f''$ are clearly $0$
+and they are both clearly linear, so each of them must be an isomorphism
+[^1]. It is not hard to extend this argument to all different kinds of
+combinations of $V$ and ${V}^{\ast}$.
 
 The preceding paragraph is fairly dense and contains some
 plausible-sounding but non-obvious things. Read it slowly. In essence,
 it proves that we can write tensors as multilinear maps
 $$\begin{aligned}
-    f \colon\underbrace{V \to \dots \to V}_{\times l} \to \underbrace{{V}^{*} \to \dots \to {V}^{*}}_{\times k} \to R.\end{aligned}$$
+    f \colon\underbrace{V \to \dots \to V}_{\times l} \to \underbrace{{V}^{\ast} \to \dots \to {V}^{\ast}}_{\times k} \to R.\end{aligned}$$
 
 Contractions {#sec:contractions}
 ============
 
 With index notation, we can concisely show the valence of a tensor.
-$f \colon V \to V \to {V}^{*} \to {V}^{*} \to {V}^{*} \to R$ may
-profitably be written as $%
+$f \colon V \to V \to {V}^{\ast} \to {V}^{\ast} \to {V}^{\ast} \to R$
+may profitably be written as $%
   %
   \tnsr@Sps{}%
   \tnsr@Sbs{}%
@@ -439,7 +439,7 @@ consider a valence $(2, 1)$ tensor $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{X}{_a_b^c} \colon V \to V \to {V}^{*} \to R\end{aligned}$$ and a
+{X}{_a_b^c} \colon V \to V \to {V}^{\ast} \to R\end{aligned}$$ and a
 valence $(0, 2)$ tensor $$\begin{aligned}
     %
   %
@@ -448,8 +448,8 @@ valence $(0, 2)$ tensor $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{Y}{^a^b} \colon{V}^{*} \to {V}^{*} \to R.\end{aligned}$$ Now, one way
-of viewing these tensors is to view $%
+{Y}{^a^b} \colon{V}^{\ast} \to {V}^{\ast} \to R.\end{aligned}$$ Now, one
+way of viewing these tensors is to view $%
   %
   \tnsr@Sps{}%
   \tnsr@Sbs{}%
@@ -579,7 +579,7 @@ function bilinear on $U \times V$, there is a function that is linear on
 $U \otimes V$. So we have yet another way of writing
 [\[def:tensor\]](#def:tensor){reference-type="ref"
 reference="def:tensor"}: a tensor is a linear map $$\begin{aligned}
-    f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times k} \to R.\end{aligned}$$
+    f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times k} \to R.\end{aligned}$$
 
 This looks somewhat familiar thought. Recalling
 [\[def:dual\_space\]](#def:dual_space){reference-type="ref"
@@ -587,17 +587,17 @@ reference="def:dual_space"}, we can rewrite the set of valence $(k, l)$
 tensors as $$\begin{aligned}
     &\set{f \quad \textrm{s.th.} \quad f \textrm{ is a valence $(k, l)$ tensor}}\\
     %
-    ={}& \set{f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times k} \to R \quad \textrm{s.th.} \quad f \text{ is linear}}\\
+    ={}& \set{f \colon\underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times k} \to R \quad \textrm{s.th.} \quad f \text{ is linear}}\\
     %
-    ={}& {\big( \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times k} \big)}^{*}\\
+    ={}& {\big( \underbrace{V \otimes \dots \otimes V}_{\times l} \otimes \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times k} \big)}^{\ast}\\
     %
-    ={}& \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
+    ={}& \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
 The last step is that taking the dual space distributes over tensor
 products. It is not hard to believe, and it is not difficult to prove
 [^2]. Hence we can make one last very neat reformulation of
 [\[def:tensor\]](#def:tensor){reference-type="ref"
 reference="def:tensor"}: A tensor is an element of $$\begin{aligned}
-    \underbrace{{V}^{*} \otimes \dots \otimes {V}^{*}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
+    \underbrace{{V}^{\ast} \otimes \dots \otimes {V}^{\ast}}_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}$$
 
 Krönecker product {#sec:krönecker_product}
 =================
@@ -683,8 +683,9 @@ think about what happens to the components of a tensor $%
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{T}{_i^j} \colon V \to {V}^{*} \to R$ when we make a coordinate change
-to $V$. If $v$ is a vector in $V$ whose components transform as $%
+{T}{_i^j} \colon V \to {V}^{\ast} \to R$ when we make a coordinate
+change to $V$. If $v$ is a vector in $V$ whose components transform as
+$%
   %
   \tnsr@Sps{}%
   \tnsr@Sbs{}%
@@ -706,15 +707,15 @@ to $V$. If $v$ is a vector in $V$ whose components transform as $%
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
 {v}{^j}$ by a change of coordinates, and if
-${v}^{*} = \langle v, \cdot \rangle \in {V}^{*}$, then the components of
-${v}^{*}$ should transform as $%
+${v}^{\ast} = \langle v, \cdot \rangle \in {V}^{\ast}$, then the
+components of ${v}^{\ast}$ should transform as $%
   %
   \tnsr@Sps{}%
   \tnsr@Sbs{}%
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_i} \mapsto %
+{({v}^{\ast})}{_i} \mapsto %
   %
   \tnsr@Sps{}%
   \tnsr@Sbs{}%
@@ -728,9 +729,9 @@ ${v}^{*}$ should transform as $%
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_j}$. The reason for this is that $|v|^2 = {v}^{*} v$ is
-invariant under coordinate changes, and $$\begin{aligned}
-    {v}^{*} v ={}& %
+{({v}^{\ast})}{_j}$. The reason for this is that $|v|^2 = {v}^{\ast} v$
+is invariant under coordinate changes, and $$\begin{aligned}
+    {v}^{\ast} v ={}& %
   %
   \tnsr@Sps{}%
   \tnsr@Sbs{}%
@@ -744,7 +745,7 @@ invariant under coordinate changes, and $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_i}\\
+{({v}^{\ast})}{_i}\\
     \mapsto{}& %
   %
   \tnsr@Sps{}%
@@ -773,7 +774,7 @@ invariant under coordinate changes, and $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_k}\\
+{({v}^{\ast})}{_k}\\
     ={}& %
   %
   \tnsr@Sps{}%
@@ -795,10 +796,10 @@ invariant under coordinate changes, and $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_k}\\
-    ={}& {v}^{*} v\end{aligned}$$ shows that this is satisfied. So with
-some abuse of notation, let's write down how $T(v, {v}^{*})$ transforms:
-$$\begin{aligned}
+{({v}^{\ast})}{_k}\\
+    ={}& {v}^{\ast} v\end{aligned}$$ shows that this is satisfied. So
+with some abuse of notation, let's write down how $T(v, {v}^{\ast})$
+transforms: $$\begin{aligned}
     %
   %
   \tnsr@Sps{}%
@@ -822,7 +823,7 @@ $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_j}
+{({v}^{\ast})}{_j}
     \big)
     \mapsto{}& T\big(
         %
@@ -854,7 +855,7 @@ $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_l}
+{({v}^{\ast})}{_l}
     \big)\\
     %
     ={}& %
@@ -895,7 +896,7 @@ $$\begin{aligned}
   \let\tnsr@Wrn\relax
 
   \@ifstar{\tnsr@Spcfalse\tnsr@Aux}{\tnsr@Spctrue\tnsr@Aux}%
-{({v}^{*})}{_l}
+{({v}^{\ast})}{_l}
     \big).\end{aligned}$$ Hence the components of $%
   %
   \tnsr@Sps{}%
@@ -977,5 +978,6 @@ the obvious way for higher valence tensors.
     when $V$ is infinite-dimensional? I don't think that I can.
 
 [^2]: The idea is that
-    $\phi \colon{V}^{*} \otimes {W}^{*} \to {(V \otimes W)}^{*}$ defined
-    by $\phi(f \otimes g)(v \otimes w) = f(v) g(w)$ is an isomorphism.
+    $\phi \colon{V}^{\ast} \otimes {W}^{\ast} \to {(V \otimes W)}^{\ast}$
+    defined by $\phi(f \otimes g)(v \otimes w) = f(v) g(w)$ is an
+    isomorphism.

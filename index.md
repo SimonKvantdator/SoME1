@@ -1,7 +1,9 @@
 ---
 usemathjax:true
 ---
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 

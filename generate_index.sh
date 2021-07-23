@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Generate .md file from .tex
-# pandoc --standalone --from=latex main.tex --output=index.md --to=gfm
-pandoc -s main.tex -o index.md --mathjax
+pandoc --standalone --from=latex main.tex --output=index.md --to=gfm
+# pandoc -s main.tex -o index.md --mathjax
 
 # Add some preamble at the beginning of the file
 echo '---

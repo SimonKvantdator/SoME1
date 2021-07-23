@@ -326,34 +326,34 @@ In essence, it proves that we can write tensors as multilinear maps
 \label{sec:contractions}
 
 With index notation, we can consicely show the valence of a tensor.
-$f \from V \to V \to \dual V \to \dual V \to \dual V \to R$ may profitably be written as $\tensor{f}{_{a b}^{c d e}}$.
+$f \from V \to V \to \dual V \to \dual V \to \dual V \to R$ may profitably be written as $f{}_{a b}{}^{c d e}$.
 But writing indices in this way also helps us denote partial applications in a way that uniquely tells us \emph{which} partial applications are made.
 
 Here's the bridge between tensors as multilinear maps and tensors as indexed objects: contractions are partial applications.
 As an example, consider a valence $(2, 1)$ tensor
 \begin{align*}
-	\tensor{X}{_a_b^c} \from V \to V \to \dual V \to R
+	X{}_a{}_b{}^c \from V \to V \to \dual V \to R
 \end{align*}
 and a valence $(0, 2)$ tensor
 \begin{align*}
-	\tensor{Y}{^a^b} \from \dual V \to \dual V \to R.
+	Y{}^{}a{}^b \from \dual V \to \dual V \to R.
 \end{align*}
-Now, one way of viewing these tensors is to view $\tensor{X}{_a_b^c}$ as a map $\from V \times V \to V$ and $\tensor{Y}{^a^b}$ as an element in $V \times V$.
-Then we can of course act on $\tensor{Y}{^a^b}$ with $\tensor{X}{_a_b^c}$,
+Now, one way of viewing these tensors is to view $X{}_a{}_b{}^c$ as a map $\from V \times V \to V$ and $Y{}^a{}^b$ as an element in $V \times V$.
+Then we can of course act on $Y{}^a{}^b$ with $X{}_a{}_b{}^c$,
 which is written
 \begin{align*}
-	\tensor{X}{_a_b^c} \tensor{Y}{^a^b}
+	X{}_a{}_b{}^c Y{}^a{}^b
 \end{align*}
 and yields a valence $(1, 0)$ tensor (vector in $V$).
-But $\tensor{X}{^a_b_c}$ can also be seen as a map $\from V \to V^V$.
-Then, applying $\tensor{X}{^a_b_c}\from V \to V^V$ to the first part of $\tensor{Y}{^a^b}$, written
+But $X{}^a{}_b{}_c$ can also be seen as a map $\from V \to V^V$.
+Then, applying $X{}^a{}_b{}_c\from V \to V^V$ to the first part of $Y{}^a{}^b$, written
 \begin{align*}
-	\tensor{X}{^a_b_c} \tensor{Y}{^c^d},
+	X{}^a{}_b{}_c Y{}^c{}^d,
 \end{align*}
 yields a valence $(2, 1)$ tensor.
 
 The relation between this definition of contraction and the \enquote{repeated indices are summed over}-one is that they're the same thing if we do contraction explicitly in an orthogonal basis for $V$.
-Remember that in my notation $\tensor{X}{^a_b_c}$ \emph{is} the tensor while in regular index notation $\tensor{X}{^a_b_c}$ is its components in some given basis.
+Remember that in my notation $X{}^a{}_b{}_c$ \emph{is} the tensor while in regular index notation $X{}^a{}_b{}_c$ is its components in some given basis.
 So now is a pretty good time to reflect a bit on what we have actually done.
 For I didn't need to mention any basis until this paragraph, so everything we have done thus far is totally basis-independent!
 

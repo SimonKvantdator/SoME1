@@ -1,9 +1,19 @@
 ---
 usemathjax:true
 ---
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 [comment]: <> (This .md file is automatically generated from main.tex)
+
+
+---
+author:
+- Simon Jacobsson
+title: |
+    What is a tensor?\
+    Tensors from physics explained in unnecessary rigour using concepts from
+    functional programming\
+---
 
 If you ask a physics professor what a tensor is, they will likely tell
 you that "it is something that transforms like a tensor." I was

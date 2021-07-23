@@ -1,14 +1,16 @@
 #!/bin/bash
 
 # Generate .md file from .tex
-pandoc -s main.tex -o index.md --mathjax
+# pandoc --standalone --from=latex main.tex --output=index.md --to=gfm
+pandoc --standalone main.tex --output=index.md
 
 # Add some preamble at the beginning of the file
 echo '---
-usemathjax: true
+usemathjax:true
 ---
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="text/javascript" async
+ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 
 [comment]: <> (This .md file is automatically generated from main.tex)
 

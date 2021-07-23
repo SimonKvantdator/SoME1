@@ -16,5 +16,5 @@ usemathjax: true
 ' | cat - index.md > temp && mv temp index.md
 
 # Escape {{ to { { since {{ means something in markdown
-# sed -i 's/{{/{ {/g' index.md
-# sed -i 's/}}/} }/g' index.md
+sed -i 's/{{/{ {/g' index.md
+sed -i 's/}}/} }/g' index.md

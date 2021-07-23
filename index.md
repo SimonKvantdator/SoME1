@@ -364,6 +364,43 @@ it proves that we can write tensors as multilinear maps
 \[\begin{aligned}
     f \colon\underbrace{V \to \dots \to V}_{\times l} \to \underbrace{ {V}^{\ast} \to \dots \to {V}^{\ast} }_{\times k} \to R.\end{aligned}\]
 
+# Contractions
+
+With index notation, we can consicely show the valence of a tensor.
+\\(f \colon V \to V \to {V}^{\ast} \to {V}^{\ast} \to {V}^{\ast} \to R\\)
+may profitably be written as \\(\tensor{f}{_{a b}^{c d e} }\\). But writing
+indices in this way also helps us denote partial applications in a way
+that uniquely tells us *which* partial applications are made.
+
+Here’s the bridge between tensors as multilinear maps and tensors as
+indexed objects: contractions are partial applications. As an example,
+consider a valence \\((2, 1)\\) tensor \[\begin{aligned}
+    \tensor{X}{_a_b^c} \colon V \to V \to {V}^{\ast} \to R\end{aligned}\]
+and a valence \\((0, 2)\\) tensor \[\begin{aligned}
+    \tensor{Y}{^a^b} \colon{V}^{\ast} \to {V}^{\ast} \to R.\end{aligned}\]
+Now, one way of viewing these tensors is to view \\(\tensor{X}{_a_b^c}\\)
+as a map \\(\colon V \times V \to V\\) and \\(\tensor{Y}{^a^b}\\) as an
+element in \\(V \times V\\). Then we can of course act on
+\\(\tensor{Y}{^a^b}\\) with \\(\tensor{X}{_a_b^c}\\), which is written
+\[\begin{aligned}
+    \tensor{X}{_a_b^c} \tensor{Y}{^a^b}\end{aligned}\] and yields a
+valence \\((1, 0)\\) tensor (vector in \\(V\\)). But \\(\tensor{X}{^a_b_c}\\)
+can also be seen as a map \\(\colon V \to V^V\\). Then, applying
+\\(\tensor{X}{^a_b_c}\colon V \to V^V\\) to the first part of
+\\(\tensor{Y}{^a^b}\\), written \[\begin{aligned}
+    \tensor{X}{^a_b_c} \tensor{Y}{^c^d},\end{aligned}\] yields a valence
+\\((2, 1)\\) tensor.
+
+The relation between this definition of contraction and the “repeated
+indices are summed over”-one is that they’re the same thing if we do
+contraction explicitly in an orthogonal basis for \\(V\\). Remember that
+in my notation \\(\tensor{X}{^a_b_c}\\) *is* the tensor while in regular
+index notation \\(\tensor{X}{^a_b_c}\\) is its components in some given
+basis. So now is a pretty good time to reflect a bit on what we have
+actually done. For I didn’t need to mention any basis until this
+paragraph, so everything we have done thus far is totally
+basis-independent\!
+
 # Tensor product
 
 You could stop reading here and still get away with a pretty solid
@@ -405,6 +442,77 @@ products. It is not hard to believe, and it is not difficult to prove
 [\[def:tensor\]](#def:tensor): A tensor is an element of
 \[\begin{aligned}
     \underbrace{ {V}^{\ast} \otimes \dots \otimes {V}^{\ast} }_{\times l} \otimes \underbrace{V \otimes \dots \otimes V}_{\times k}.\end{aligned}\]
+
+# Krönecker product
+
+This is all very elegant, but it is at the same time very abstract, and
+it would be useful to see how these concepts look in the wild. Enter the
+Krönecker product, which is *a* tensor product. You can use it for
+finite-dimensional spaces for which you have a basis.
+
+Let \[\begin{aligned}
+        A =
+        \begin{bmatrix}
+            A_{11} & \dots & A_{1n}\\
+            \vdots & \ddots & \vdots\\
+            A_{m1} & \dots & A_{mn}
+        \end{bmatrix}
+    \end{aligned}\] and \[\begin{aligned}
+        B =
+        \begin{bmatrix}
+            B_{11} & \dots & B_{1q}\\
+            \vdots & \ddots & \vdots\\
+            B_{p1} & \dots & B_{pq}
+        \end{bmatrix}
+    \end{aligned}\] be two matrices with entries in a field \\(R\\). The
+*Krönecker product* of \\(A\\) and \\(B\\) is \[\begin{aligned}
+        \pi(A, B) =
+        \begin{bmatrix}
+            A_{11}
+            \begin{bmatrix}
+                B_{11} & \dots & B_{1q}\\
+                \vdots & \ddots & \vdots\\
+                B_{p1} & \dots & B_{pq}
+            \end{bmatrix}
+            & \dots &
+            A_{1n}
+            \begin{bmatrix}
+                B_{11} & \dots & B_{1q}\\
+                \vdots & \ddots & \vdots\\
+                B_{p1} & \dots & B_{pq}
+            \end{bmatrix}\\
+            %
+            \vdots & \ddots & \vdots\\
+            %
+            A_{m1}
+            \begin{bmatrix}
+                B_{11} & \dots & B_{1q}\\
+                \vdots & \ddots & \vdots\\
+                B_{p1} & \dots & B_{pq}
+            \end{bmatrix}
+            & \dots &
+            A_{mn}
+            \begin{bmatrix}
+                B_{11} & \dots & B_{1q}\\
+                \vdots & \ddots & \vdots\\
+                B_{p1} & \dots & B_{pq}
+            \end{bmatrix}
+        \end{bmatrix}.
+    \end{aligned}\] So \\(\pi(A, B)\\) is a \\(mp \times mq\\) matrix and an
+is element of the tensor product space \\(R^{mn} \otimes R^{pq}\\).
+\\(\pi(A, B)\\) is denoted \\(A \otimes B\\).
+
+The tensor product space \\(R^{mn} \otimes R^{pq} = R^{mp \times mq}\\) is
+much larger than the Cartesian product space
+\\(R^{(m + p) \times (n + q)}\\), which reflects the fact that it less
+restrictive to be multilinear than to be linear.
+
+We had an example earlier, [\[eq:outer\_product\]](#eq:outer_product),
+of a multilinear map. We can see now that this is just
+\\(\vec u \otimes \vec v\\). Hence, for each bilinear function that \\(f\\)
+takes two real \\(3\\)-vectors, there is a linear function \\(g\\) that
+takes one real \\(3\times3\\)-matrix such that
+\\(f(\vec u, \vec v) = g(\vec u \otimes \vec v)\\).
 
 # How to transform like a tensor
 

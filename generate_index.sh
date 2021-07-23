@@ -22,5 +22,3 @@ sed -i 's/}}/} }/g' index.md
 # Escape backslashes in \( and \[
 sed -i 's/\\(/\\\\(/g' index.md
 sed -i 's/\\)/\\\\)/g' index.md
-sed -i 's/\\\[/\\\\\[/g' index.md
-sed -i 's/\\\]/\\\\\]/g' index.md

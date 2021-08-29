@@ -26,7 +26,6 @@ Ideally you have
 \begin{itemize}
 	\item heard of tensors before.
 	Possibly in the context of physics, where you'll likely have seen Einstein's summation convention.
-	Maybe you've even felt the same frustration over the vagueness of the concept as me.
 	\item had some linear algebra courses.
 	You are comfortable with cross and dot products.
 	It is good if you know what a linear space is.
@@ -37,7 +36,7 @@ If you google \enquote{what is a tensor}, there are already many people who have
 Many of them also have strong opinions about the subject.
 So please don't think of this as \emph{the} definition of tensors, but rather one of many ways to define them, which if nothing else shows off some cool ideas from programming.
 
-\href{https://www.quora.com/Why-is-it-difficult-to-explain-tensors?}{\color{blue}This} question on Quora gives a fairly good overview over why tensors are difficult to pin down.
+\href{https://www.quora.com/Why-is-it-difficult-to-explain-tensors?}{\color{blue}This} question on Quora gives a fairly good overview over how difficutl tensors are to pin down.
 
 \section{Linearity}%
 \label{sec:linearity}
@@ -61,17 +60,17 @@ So let's define things in that order.
 	Let \(R\) be a field (\(\reals\) and \(\complexnumbers\) are examples of fields).
 	If \(U\) and \(V\) are linear spaces over \(R\) and \(f \from U \to V\), then \(f\) is \emph{linear} if
 	\begin{enumerate}
-		\item $f(u + v) = f(u) + f(v)$ for all \(a\), \(b \in U\).%
+		\item $f(u + u') = f(u) + f(u')$ for all \(u\), \(u' \in U\).%
 		\label{item:linearity_plus}
-		\item \(f(c u) = c f(u)\) for all \(a \in U\) and all \(c \in R\).%
+		\item \(f(c u) = c f(u)\) for all \(u \in U\) and all \(c \in R\).%
 		\label{item:linearity_multiplication}
 	\end{enumerate}
 \end{definition}
 This is pretty familiar stuff!
-But if we think about it for a bit, what must be true about \(V\) for \cref{item:linearity_plus,item:linearity_multiplication} to make sense?
-Well, if \(f\) maps from \(V\) and \(f(a + b)\) should be well-defined, then \(a + b\) should be in \(V\).
-This should be true for all \(a\) and \(b\).
-Similarly, if \(f(c a)\) should make sense, \(c a\) should be in \(V\) for all \(a \in V\) and all \(c \in R\).
+But if we think about it for a bit, what must be true about \(U\) for \cref{item:linearity_plus,item:linearity_multiplication} to make sense?
+Well, if \(f\) maps from \(U\) and \(f(u + u')\) is well-defined, then \(u + u'\) should be in \(U\).
+This should be true for all \(u\) and \(u'\).
+Similarly, if \(f(c u)\) is well-defined, \(c u\) should be in \(U\) for all \(u \in U\) and all \(c \in R\).
 We have some other things we generally want to be true about linear spaces, but this is basically it.
 \begin{definition}\label{def:linear_space}
 	Let \(R\) be a field.

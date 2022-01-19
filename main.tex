@@ -7,21 +7,20 @@
 
 \title{What is a tensor?\\Tensors from physics explained in unnecessary rigour using concepts from functional programming\\\ding{166}}
 \author{Simon Jacobsson}
-\date{\today}
+\date{2021-09-21}
 
 \begin{document} 
 \maketitle
 
-If you ask a physics professor what a tensor is, they will likely tell you that \enquote{it is something that transforms like a tensor.}
-I was personally a bit disappointed hearing this as a Master's student in theoretical physics, not only because of the apparent circularity of that statement, but because there was no interest in exploring the deeper mathematical reasons for why tensors kept appearing everywhere.
-But those reasons \emph{are} interesting, and there \emph{is} a more insightful definition of tensors!
-% Why is everything from cross products to moment of inertia described by tensors?
+% If you ask a physics professor what a tensor is, they will likely tell you that \enquote{it is something that transforms like a tensor.}
+% I was personally a bit disappointed hearing this as a Master's student in theoretical physics, not only because of the apparent circularity of that statement, but because there was no interest in exploring the deeper mathematical reasons for why tensors kept appearing everywhere.
+% But those reasons \emph{are} interesting, and there \emph{is} a more insightful definition of tensors!
+% % Why is everything from cross products to moment of inertia described by tensors?
 
 \section{Who is this explanation for?}%
 \label{sec:who_is_this_explanation_for_}
 
-This text is my attempt to write down what I wish I had been taught at the beginning of my Master's programme.
-The explanation I am about to give is aimed at those with some university level maths and maybe physics also.
+The explanation I am about to give is aimed at those with some university level maths and physics.
 Ideally you have
 \begin{itemize}
 	\item heard of tensors before.
@@ -34,9 +33,9 @@ Ideally you have
 
 If you google \enquote{what is a tensor}, there are already many people who have tried in many ways to answer this question.
 Many of them also have strong opinions about the subject.
-So please don't think of this as \emph{the} definition of tensors, but rather one of many ways to define them, which if nothing else shows off some cool ideas from programming.
+So please don't think of this as \emph{the} explanation of tensors, but rather one of many ways to explain them, which if nothing else shows off some cool ideas from programming.
 
-\href{https://www.quora.com/Why-is-it-difficult-to-explain-tensors?}{\color{blue}This} question on Quora gives a fairly good overview over how difficutl tensors are to pin down.
+\href{https://www.quora.com/Why-is-it-difficult-to-explain-tensors?}{\color{blue}This} question on Quora gives a fairly good overview over how difficult tensors are to pin down.
 
 \section{Linearity}%
 \label{sec:linearity}
@@ -129,11 +128,16 @@ If \(\langle \cdot, \cdot \rangle\) is the natural inner product on \(\reals^n\)
 	\dual{(\reals^n)} = \set{ \langle v, \cdot \rangle \quad \textrm{s.th.} \quad v \in \reals^n}.
 \end{align*}
 
+\begin{proposition}
+	$\dual V$ is a linear space.
+\end{proposition}
+
 \begin{proposition}\label{prop:dual_dual_space}
 	\(\ddual V = V\).
 \end{proposition}
 
-You can prove this if you want to, but, for me at least, it feels like it really should be true.
+I won't prove these two propositions here.
+If you want to prove them yourself, note that \cref{prop:dual_dual_space} is not generally true if $V$ is infinite-dimensional.
 
 
 \section{Einstein's summation convention}%
@@ -186,7 +190,7 @@ Importantly, this means that
 	\item for a given argument \(a\), a function \emph{always} returns the same element \(b\).
 \end{enumerate}
 
-It may seem that this is very limiting, but it actually turns out that writing code this way feels much more like doing maths than the other type of coding!
+It may seem that this is very limiting, but it actually turns out that writing code this feels much more like doing maths than the other type of coding!
 Since everything that you can use are functions, you get very intimate with the properties of functions when programming functionally.
 
 One important concept is \emph{partial application}, or \emph{currying}.
@@ -308,8 +312,7 @@ But since \(\dual{(\dual V)} = V\), \(f'' \from V \to V\).
 The kernels of each of the two maps \(f \mapsto f'\) and \(f' \mapsto f''\) are clearly \(0\) and they are both clearly linear, so each of them must be an isomorphism%
 \footnote{%
 There are three statements here that must be motivated: \(\operatorname{ker}(f \mapsto f') = 0\), \(\operatorname{ker}(f' \mapsto f'') = 0\), and that \(f \mapsto f''\) is an isomorphism.
-Can you come up with concise arguments for these when \(V\) is infinite-dimensional?
-I don't think that I can.
+Remember that \(V\) is finite-dimensional.
 }.
 It is not hard to extend this argument to all different kinds of combinations of \(V\) and \(\dual V\).
 
@@ -335,7 +338,7 @@ As an example, consider a valence $(2, 1)$ tensor
 \end{align*}
 and a valence $(0, 2)$ tensor
 \begin{align*}
-	Y{}^{}a{}^b \from \dual V \to \dual V \to R.
+	Y{}^a{}^b \from \dual V \to \dual V \to R.
 \end{align*}
 Now, one way of viewing these tensors is to view $X{}_a{}_b{}^c$ as a map $\from V \times V \to V$ and $Y{}^a{}^b$ as an element in $V \times V$.
 Then we can of course act on $Y{}^a{}^b$ with $X{}_a{}_b{}^c$,
